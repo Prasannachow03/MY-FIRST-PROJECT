@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-2 Registration Form</title>
+  <!-- Linking CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header / Navbar ===== -->
+  <header>
+    <nav class="navbar">
+      <h1>My WebApp</h1>
+      <div>
+        <a href="#">Home</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Registration Form ===== -->
+  <main>
+    <div class="container" id="register">
+      <h2>Registration Form</h2>
+      <form id="regForm">
+        
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname">
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="password">Set Password:</label>
+        <input type="password" id="password" name="password">
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label>Gender:</label>
+        <div class="gender">
+          <input type="radio" id="male" name="gender" value="Male">
+          <label for="male">Male</label>
+
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+
+          <input type="radio" id="other" name="gender" value="Other">
+          <label for="other">Other</label>
+        </div>
+
+        <div id="errorMsg" class="error"></div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 My WebApp | Designed for Internship Task-2</p>
+  </footer>
+
+  <!-- Linking JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
