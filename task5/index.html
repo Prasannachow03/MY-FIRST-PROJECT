@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task-5 — Optimized Portfolio</title>
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Critical meta & description -->
+  <meta name="description" content="Optimized portfolio demo: lazy-loading, responsive images, caching, minimal JS." />
+
+  <!-- Minimal inline critical CSS for fastest paint (keeps above-the-fold styling immediate) -->
+  <style>
+    /* Tiny critical css: header + hero */
+    :root{--accent:#0b5cff;--bg:#f7f8fb;--fg:#111}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--fg)}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    header{display:flex;align-items:center;gap:1rem;padding:0.75rem 0}
+    .logo{font-weight:700;color:var(--accent)}
+    .hero{display:flex;gap:1rem;align-items:center;padding:1.5rem 0}
+    .hero-left h1{margin:0;font-size:1.4rem}
+  </style>
+</head>
+<body>
+  <header class="container" role="banner">
+    <div style="display:flex;align-items:center;gap:1rem;width:100%;justify-content:space-between">
+      <div><span class="logo">MyCapstone</span></div>
+      <nav aria-label="Primary" class="nav-hidden">
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Final Project — Optimized Portfolio</h1>
+        <p class="lead">A compact demo showing practical front-end optimizations: lazy-loading, responsive images, minimized render-blocking, caching, and efficient DOM updates.</p>
+        <p><a class="btn" href="#projects">See projects</a></p>
+      </div>
+      <div class="hero-right">
+        <!-- Responsive image: small/medium/large and lazy-loaded -->
+        <img
+          src="https://via.placeholder.com/600x360?text=Preview"
+          srcset="https://via.placeholder.com/480x288?text=Preview 480w,
+                  https://via.placeholder.com/800x480?text=Preview 800w,
+                  https://via.placeholder.com/1200x720?text=Preview 1200w"
+          sizes="(max-width:600px) 100vw, 360px"
+          alt="Project preview"
+          loading="lazy"
+          width="600" height="360">
+      </div>
+    </section>
+
+    <!-- Projects (rendered by JS) -->
+    <section id="projects" class="section">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <h2>Projects</h2>
+        <div>
+          <input id="q" type="search" placeholder="Search (instant, low-overhead)" aria-label="Search projects">
+        </div>
+      </div>
+
+      <div id="projects-grid" class="projects-grid" aria-live="polite">
+        <!-- JS will render lightweight cards here -->
+      </div>
+
+      <!-- Lazy heavy content placeholder -->
+      <div id="heavy-placeholder" class="muted" aria-hidden="true">
+        Loading more content when you're near the end...
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <form id="contact-form" class="contact-form" novalidate>
+        <label>
+          <span>Name</span>
+          <input name="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" required>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <div style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem">
+          <button class="btn" type="submit">Send</button>
+          <button id="save-draft" type="button" class="btn alt">Save draft</button>
+          <span id="contact-info" class="muted" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container muted" style="padding:1rem 0">
+    © <span id="year"></span> MyCapstone — Task-5 Optimizations Demo
+  </footer>
+
+  <!-- Defer heavy JS to avoid render-blocking; app.js is intentionally small & efficient -->
+  <script src="app.js" defer></script>
+</body>
+</html>
