@@ -1,0 +1,65 @@
+/* styles.css - simple modern aesthetic */
+/* Reset-ish */
+* {box-sizing: border-box}
+html,body {margin:0;padding:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#111;background:#f7f8fb}
+a {color:inherit;text-decoration:none}
+.container {max-width:1100px;margin:0 auto;padding:1rem}
+
+/* Header */
+.site-header {background:#fff;border-bottom:1px solid #e6e9ef;position:sticky;top:0;z-index:30}
+.header-inner {display:flex;align-items:center;gap:1rem;padding:0.75rem 0}
+.logo {font-weight:700;color:#0b5cff}
+.nav {margin-left:auto;display:flex;gap:0.5rem;align-items:center}
+.nav-link {padding:0.35rem 0.6rem;border-radius:6px}
+.nav-link:hover {background:#f1f4ff}
+.btn {padding:0.5rem 0.7rem;border:1px solid rgba(0,0,0,0.06);border-radius:8px;background:#fff;cursor:pointer}
+.btn.primary {background:#0b5cff;color:#fff;border-color:transparent}
+.btn.danger {background:#ffefef;color:#8b1515;border-color:transparent}
+
+/* Hero */
+.hero {display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:center;padding:2rem 0}
+.hero-left h2 {margin:0 0 0.5rem 0;font-size:1.6rem}
+.lead {margin:0 0 1rem 0;color:#374151}
+.accent {color:#0b5cff;font-weight:600}
+
+/* Sections */
+.section {padding:1.25rem 0}
+.section-head {display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.controls {display:flex;gap:0.5rem;align-items:center}
+.controls input, .controls select {padding:0.5rem;border-radius:8px;border:1px solid #e6e9ef;outline:none}
+
+/* Projects grid */
+.projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card {background:#fff;padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(15,20,40,0.04);display:flex;flex-direction:column;gap:0.5rem}
+.card h4 {margin:0;font-size:1.05rem}
+.card .meta {font-size:0.85rem;color:#6b7280}
+.card .chips {display:flex;gap:0.4rem;flex-wrap:wrap}
+.chip {font-size:0.75rem;padding:0.25rem 0.45rem;border-radius:999px;background:#f1f5f9}
+
+/* Footer */
+.site-footer {padding:1rem 0;margin-top:2rem;color:#6b7280}
+
+/* Modal */
+.modal {position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,10,20,0.45);padding:1rem}
+.modal[aria-hidden="false"] {display:flex}
+.modal-content {background:#fff;padding:1rem 1.25rem;border-radius:12px;max-width:720px;width:100%;position:relative}
+.modal-close {position:absolute;top:12px;right:12px;border:0;background:transparent;font-size:1.1rem;cursor:pointer}
+
+/* Forms */
+.form-row {display:flex;flex-direction:column;margin-bottom:0.6rem}
+.form-row label {font-size:0.85rem;color:#374151;margin-bottom:0.25rem}
+.form-row input, .form-row textarea {padding:0.55rem;border-radius:8px;border:1px solid #e6e9ef;outline:none}
+.form-actions {display:flex;gap:0.5rem;justify-content:flex-end;margin-top:0.75rem}
+
+/* Utilities */
+.muted {color:#6b7280}
+@media (max-width:880px){
+  .hero {grid-template-columns:1fr;gap:1rem;text-align:center}
+  .nav {display:none}
+  .header-inner {gap:0.5rem}
+  .hero-right img {width:100%;height:auto;border-radius:8px}
+}
+
+/* small touches */
+.project-actions {display:flex;gap:0.4rem;margin-top:auto}
+.card p {margin:0;color:#374151;font-size:0.95rem}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capstone Portfolio — Task 4</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Capstone Portfolio - full web application with project management and contact form." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">MyCapstone</h1>
+      <nav class="nav">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button id="add-project-btn" class="btn primary">+ Add Project</button>
+      <button id="theme-toggle" class="btn">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / About -->
+    <section id="about" class="hero container">
+      <div class="hero-left">
+        <h2>Hello, I'm <span class="accent">[Your Name]</span></h2>
+        <p class="lead">A web developer intern — this is my capstone project demonstrating HTML, CSS & JavaScript skills. Built with responsive design, localStorage persistence, and accessible markup.</p>
+        <p>
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </p>
+      </div>
+      <div class="hero-right">
+        <img src="https://via.placeholder.com/360x220?text=Capstone+Preview" alt="project preview" />
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container section">
+      <div class="section-head">
+        <h3>Projects</h3>
+        <div class="controls">
+          <input id="search-input" type="search" placeholder="Search projects..." />
+          <select id="tech-filter">
+            <option value="">All tech</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="React">React</option>
+            <option value="Node">Node</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="projects-grid">
+        <!-- Project cards inserted here by JS -->
+      </div>
+      <p id="no-projects" class="muted" style="display:none">No projects found. Click <strong>+ Add Project</strong> to create one.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section">
+      <h3>Contact</h3>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send</button>
+          <button type="button" id="save-draft" class="btn">Save Draft</button>
+        </div>
+      </form>
+      <p id="contact-feedback" class="muted" style="display:none"></p>
+    </section>
+  </main>
+
+  <!-- Project Modal / Editor -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="close-modal" class="modal-close" aria-label="Close">✕</button>
+      <h4 id="modal-title">Add Project</h4>
+      <form id="project-form" class="project-form" novalidate>
+        <input type="hidden" id="project-id" />
+        <div class="form-row">
+          <label for="project-title">Title</label>
+          <input id="project-title" required />
+        </div>
+        <div class="form-row">
+          <label for="project-desc">Short Description</label>
+          <textarea id="project-desc" rows="3" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="project-tech">Technologies (comma separated)</label>
+          <input id="project-tech" placeholder="e.g. HTML,CSS,JavaScript" />
+        </div>
+        <div class="form-row">
+          <label for="project-url">Project URL (optional)</label>
+          <input id="project-url" placeholder="https://github.com/..." />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save Project</button>
+          <button type="button" id="delete-project" class="btn danger" style="display:none">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> MyCapstone — Built for ApexPlanet Internship Task 4</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
